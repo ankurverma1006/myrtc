@@ -1,0 +1,17 @@
+{
+    "apis": [        
+    {
+        "orgName": "Account and Transaction API Specification",
+        "value": "https://api.swaggerhub.com/apis/OpenBank4/account-and_transaction_api_specification/v3.1.0",
+        "displayName": "Account and Transaction API Specification",
+        "displayTag": "Home for the galaxies greatest APIs",
+        "displayImage": "https://banner2.kisspng.com/20180417/yye/kisspng-galactic-empire-logo-decal-star-wars-empire-at-wa-stormtrooper-5ad66f79162801.0405259115240026810908.jpg"
+    },
+    {
+        "orgName": "Open Banking Directory API",
+        "value": "https://api.swaggerhub.com/apis/OpenBank4/open-banking_directory_api/0.0.1",
+        "displayName": "Account and Transaction API Specification",
+        "displayTag": "Home for the galaxies greatest APIs",
+        "displayImage": "https://banner2.kisspng.com/20180417/yye/kisspng-galactic-empire-logo-decal-star-wars-empire-at-wa-stormtrooper-5ad66f79162801.0405259115240026810908.jpg"
+    }]
+}
