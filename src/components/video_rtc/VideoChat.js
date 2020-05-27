@@ -11,7 +11,7 @@ import RecordRTC from 'recordrtc';
 const VideoChat = () => {
 
     const connection = new RTCMultiConnection();
-    connection.socketURL = 'http://localhost:3002/';
+    connection.socketURL = 'http://13.127.148.136:3002/';
 
     const [state, setState] = useState({urls:''});
 
