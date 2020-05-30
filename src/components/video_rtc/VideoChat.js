@@ -7,17 +7,55 @@ import {getHTMLMediaElement} from './helper';
 import RecordRTC from 'recordrtc';
 // import { queryHelpers } from '@testing-library/dom';
 
+const hasGetUserMedia = !!(
+    navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia
+  );
+  
+
+const connection = new RTCMultiConnection();
+connection.socketURL = 'http://13.127.148.136:3002/';
+
 
 const VideoChat = () => {
 
-    const connection = new RTCMultiConnection();
-    connection.socketURL = 'http://13.127.148.136:3002/';
-
     const [state, setState] = useState({urls:''});
 
+
     useEffect(() =>{ 
+            
+  if (!hasGetUserMedia) {
+    alert(
+      'Your browser cannot stream from your webcam. Please switch to Chrome or Firefox.'
+    );
+    return;
+  }
         fetchConection();
     });
+
+
+  
+    
+    // const hasGetUserMedia = !!(
+    //     navigator.getUserMedia ||
+    //     navigator.webkitGetUserMedia ||
+    //     navigator.mozGetUserMedia ||
+    //     navigator.msGetUserMedia
+    //   );
+      
+
+    //   if (!hasGetUserMedia) {
+    //     alert(
+    //       'Your browser cannot stream from your webcam. Please switch to Chrome or Firefox.'
+    //     );
+    //     return;
+    //   }
+      
+    const connection = new RTCMultiConnection();
+    connection.socketURL = 'http://localhost:3002/';
+
 
     const fetchConection = useCallback(() => { 
         connection.socketMessageEvent = 'video-conference-demo';
@@ -133,7 +171,10 @@ const VideoChat = () => {
         
             try {
                 video.setAttributeNode(document.createAttribute('autoplay'));
-                video.setAttributeNode(document.createAttribute('playsinline'));
+                video.setAttributeNode(document.createAttribute('playsinline')); 
+                video.style.width = '250px';
+                video.classNameName = "video-section";
+          //      video.style.paddingTop = '2px';
             } catch (e) {
                 video.setAttribute('autoplay', true);
                 video.setAttribute('playsinline', true);
@@ -177,7 +218,7 @@ const VideoChat = () => {
         
             if(chkRecordConference.checked === true) {
             //  btnStopRecording.style.display = 'inline-block';
-        //   recordingStatus.style.display = 'inline-block';
+        //      recordingStatus.style.display = 'inline-block';
         
             var recorder = connection.recorder;
             if(!recorder) {
@@ -259,11 +300,172 @@ const VideoChat = () => {
 
    return (
         <>
-            <div id="room-urls" value={state.urls}></div>
+            {/* <div id="room-urls" value={state.urls}></div>
             <input type="text" id="room-id" value="abcdef" autocorrect="off" autocapitalize="off"/>
             <button onClick={openRoom}>Open Room</button>
             <button onClick={joinRoom}>Join Room</button>
-            <div id="videos-container"></div>
+            <div id="videos-container"></div> */}
+
+<input type="text" id="room-id" value="abcdef" autocorrect="off" autocapitalize="off"/>
+
+<div id="room-urls" value={state.urls}></div>
+
+{/* <div id="videos-container" style={{"margin": "20px 0"}} className="video-section"></div>   */}  
+
+
+
+<div className="wrapper">
+  <div className="container-fluid">
+    <div className="row">
+        <div className="col-lg-3 col-md-3 col-sm-12 pr-0">
+                <div className="video-main">
+                <div id="videos-container">
+                    <div >
+                        <img src="images/team-1.jpg"/>
+                    </div>
+                    <div className="user-info">
+                        <div className="user-mute">
+                           <a href="#" className="mute">  <i className="fa fa-microphone" aria-hidden="true"></i></a>
+                           
+                        </div>
+                        <div className="user-name">
+                            Bill Gates
+                        </div>
+                    </div>
+                </div>  </div> 
+        </div>
+        <div className="col-lg-3 col-md-3 col-sm-12 p-0">
+            <div className="video-section">
+                <div className="video-main">
+                    <img src="images/team-2.jpg"/>
+                </div>
+                <div className="user-info">
+                    <div className="user-mute">
+                       <a href="#" className="mute">  <i className="fa fa-microphone" aria-hidden="true"></i></a>
+
+                    </div>
+                    <div className="user-name">
+                        User Name
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div className="col-lg-3 col-md-3 col-sm-12 p-0">
+        <div className="video-section">
+            <div className="video-main">
+                <img src="images/team-3.jpg"/>
+            </div>
+            <div className="user-info">
+                <div className="user-mute">
+                   <a href="#" className="mute">  <i className="fa fa-microphone" aria-hidden="true"></i></a>
+
+                </div>
+                <div className="user-name">
+                    User Name
+                </div>
+            </div>
+        </div>
+</div>
+<div className="col-lg-3 col-md-3 col-sm-12 pl-0">
+    <div className="video-section">
+        <div className="video-main">
+            <img src="images/team-4.jpg"/>
+        </div>
+        <div className="user-info">
+            <div className="user-mute">
+               <a href="#" className="mute">  <i className="fa fa-microphone" aria-hidden="true"></i></a>
+
+            </div>
+            <div className="user-name">
+                User Name
+            </div>
+        </div>
+    </div>
+</div>
+                  
+             
+<div className="col-lg-3 col-md-3 col-sm-12 pr-0">
+    <div className="video-section">
+        <div className="video-main">
+            <img src="images/team-4.jpg"/>
+        </div>
+        <div className="user-info">
+            <div className="user-mute">
+               <a href="#" className="mute">  <i className="fa fa-microphone" aria-hidden="true"></i></a>
+
+            </div>
+            <div className="user-name">
+                Bill Gates
+            </div>
+        </div>
+    </div>  
+</div>
+<div className="col-lg-3 col-md-3 col-sm-12 p-0">
+<div className="video-section">
+    <div className="video-main">
+        <img src="images/user-5.jpg"/>
+    </div>
+    <div className="user-info">
+        <div className="user-mute">
+           <a href="#" className="mute"> <i className="fa fa-microphone-slash" aria-hidden="true"></i></a>
+
+        </div>
+        <div className="user-name">
+            User Name
+        </div>
+    </div>
+</div>
+</div>
+<div className="col-lg-3 col-md-3 col-sm-12 p-0">
+<div className="video-section">
+<div className="video-main">
+    <img src="images/team-3.jpg"/>
+</div>
+<div className="user-info">
+    <div className="user-mute">
+       <a href="#" className="mute">  <i className="fa fa-microphone" aria-hidden="true"></i></a>
+
+    </div>
+    <div className="user-name">
+        User Name
+    </div>
+</div>
+</div>
+</div>
+<div className="col-lg-3 col-md-3 col-sm-12 pl-0">
+<div className="video-section">
+<div className="video-main">
+<img src="images/team-1.jpg"/>
+</div>
+<div className="user-info">
+<div className="user-mute">
+   <a href="#" className="mute">  <i className="fa fa-microphone" aria-hidden="true"></i></a>
+
+</div>
+<div className="user-name">
+    User Name
+</div>
+</div>
+</div>
+</div>    
+          
+    </div>
+  </div> 
+  <div className="video-control pt-3 pb-3">
+      <div className="container">
+        <div className="form-inline video-form-section">
+            <label for="email">Metting Id :</label>
+            <input type="text" value="abcdef" className="form-control" placeholder="Enter Metting Id" id="metting"/>
+            <button onClick={openRoom}>Open Room</button>
+            <button onClick={joinRoom}>Join Room</button>
+          </div>
+          <div className="">
+
+          </div>
+      </div>
+</div>        
+</div>
+
         </>
    )
 }
