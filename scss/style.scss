@@ -128,3 +128,66 @@ background: #eb5d77;
   }
 }
 
+
+.video-section {
+  border: 3px solid #4a4a4a;
+  position: relative;
+}
+.video-main img {
+  width: 100%;
+  object-fit: fill;
+  height:100%;
+}
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  bottom: 7px;
+  position: absolute;
+  width: 100%;
+  padding:0px 10px
+}
+.video-main {
+  height: 270px;
+  width: 100%;
+}
+.user-mute{
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(to top, #1344a4, #011054);
+  position: relative;
+  display:block;
+  text-align: center;
+  border-radius: 50px;
+  box-shadow: 1px 2px 5px 0px #00000061;
+}
+.user-mute .fa-microphone{
+  color:#fff;
+  vertical-align: bottom;
+}
+.user-mute .fa-microphone-slash {
+  color: #ff0000a1;
+  vertical-align: bottom;
+}
+.user-name {
+  background: #00000052;
+  color: #fff;
+  padding: 3px 7px;
+  position: relative;
+}
+.user-mute:hover {
+  background: linear-gradient(to top, #134bb9, #011054cf);
+}
+.video-control {
+  background: linear-gradient(to top, #1344a4, #011054);
+}
+.video-form-section label {
+  color: #fff;
+  padding-right: 19px;
+}
+.video-form-section{
+  margin:auto;
+  text-align: center;
+  justify-content: center;
+}
+
+
